@@ -1,7 +1,5 @@
 package story.about.painter;
 
-import java.util.Comparator;
-
 public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
     private Neznaika neznaika;//Незнайка - партнер для разговора
 
@@ -24,11 +22,6 @@ public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
         return getMood()!=Mood.ANGRY&&(neznaika.getMood()!=Mood.PLEASED);//Говорит, если хочет и если Незнайка не доволен
     }
 
-//    @Override
-//    public String toString() {
-//        return "Малышка, которую зовут "+getNAME();
-//    }
-
     public String toString(){
         return getNAME();
     }
@@ -41,11 +34,6 @@ public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
         LittleGirl that = (LittleGirl) o;
         return neznaika.equals(that.neznaika);
     }
-
-//    @Override
-//    public int hashCode() {
-//        return super.hashCode()+neznaika.hashCode();
-//    }
 
     public Neznaika getNeznaika() {
         return neznaika;

@@ -3,13 +3,17 @@ package story.about.painter;
 public class Main {
     public static void main(String[] args) {
 
+        /**
+         *
+         */
+
         //GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader(args[0]); // "import" in a task FINAL
         GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test.csv"); // "import" in a task FINAL
 
         System.out.println(hashSet.show());
         System.out.println(hashSet.sortedList());
 
-        hashSet.remove("Fhneh");
+        hashSet.remove("Артур");
         System.out.println(hashSet.show());
 
         System.out.println(hashSet.info());

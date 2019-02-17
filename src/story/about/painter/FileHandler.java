@@ -9,6 +9,9 @@ import java.util.Scanner;
 
 public class FileHandler {
 
+    /**
+     *
+     */
     public static GirlsHashSet<LittleGirl> fileReader(String fileName){
         GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
         try{
@@ -23,8 +26,5 @@ public class FileHandler {
         }
         return hashSet;
     }
-
-
-
 
 }

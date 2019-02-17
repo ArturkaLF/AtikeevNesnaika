@@ -1,6 +1,4 @@
 package story.about.painter;
-
-import javax.smartcardio.ATR;
 import java.util.*;
 
 /**
@@ -9,15 +7,24 @@ import java.util.*;
 
 public class GirlsHashSet<T> extends HashSet {
 
+    /**
+     *
+     */
     private int removeCounter = 0;
     private int addCounter = 0;
 
+    /**
+     *
+     */
     @Override
     public boolean add(Object o) {
         addCounter++;
         return super.add(o);
     }
 
+    /**
+     *
+     */
     public String show(){
         String line = "";
         for (Object o : this) {
@@ -26,15 +33,25 @@ public class GirlsHashSet<T> extends HashSet {
         return line;
     }
 
+    /**
+     *
+     */
     public String sortedList(){
         ArrayList<String> list = new ArrayList<>();
         for (Object o : this) {
             list.add(o.toString());
         }
         list.sort(Comparator.comparingInt(String::length));
-        return list.toString();
+        String s ="";
+        for (Object o : list) {
+            s = s.concat(o.toString()).concat(" ");
+        }
+        return s;
     }
 
+    /**
+     *
+     */
     public void remove(String element){
         for (Object o : this) {
             if(o.toString().equals(element)){
@@ -43,9 +60,11 @@ public class GirlsHashSet<T> extends HashSet {
                 break;
             }
         }
-
     }
 
+    /**
+     *
+     */
     public String info(){
         return  "Подробная информация о коллекции: " + this.getClass() + "\n" +
                 "Количество элементов: " + this.size() + "\n" +
