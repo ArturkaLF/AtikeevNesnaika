@@ -11,6 +11,10 @@ public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
         setMessage(message);
     }
 
+    public String getMsg(){
+        return getMessage().getText();
+    }
+
     @Override
     public void speak(Talkable partner) {
         if(neznaika.getMood()==Mood.PLEASED)getMessage().setText("Спасибо");

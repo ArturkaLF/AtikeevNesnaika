@@ -85,5 +85,10 @@ public class GirlsHashSet<T> extends HashSet {
             }
         }
     }
+
+    public void save(){
+        FileHandler.fileWriter((GirlsHashSet<LittleGirl>) this);
+    }
+
 }
 

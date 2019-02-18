@@ -1,5 +1,11 @@
 package story.about.painter;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.SortedMap;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -13,21 +19,22 @@ public class Main {
         System.out.println(hashSet.show());
         System.out.println(hashSet.sortedList());
 
-        //hashSet.remove("Артур");
+        hashSet.remove("Артур");
         hashSet.remove("Ромашка");
         hashSet.remove("Звёздочка");
-        //hashSet.remove_lower("ffffffffffffffffffffff");
 
         System.out.println(hashSet.show());
 
         System.out.println(hashSet.info());
-        //hashSet.remove_lower("ssssssssssssssssss");
 
 
+        hashSet.add(new LittleGirl("Звёздочка",new Message("Пожалуйста")));
+        hashSet.add(new LittleGirl("Артур",new Message("Ку")));
+        hashSet.remove("Артур");
+        hashSet.remove("Звёздочка");
 
 
-
-
+        hashSet.save();
 //        Conversation conversation=new Conversation();
 //
 //        Neznaika neznaika=new Neznaika("Незнайка");
