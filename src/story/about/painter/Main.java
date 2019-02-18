@@ -13,10 +13,17 @@ public class Main {
         System.out.println(hashSet.show());
         System.out.println(hashSet.sortedList());
 
-        hashSet.remove("Артур");
+        //hashSet.remove("Артур");
+        hashSet.remove("Ромашка");
+        hashSet.remove("Звёздочка");
+        //hashSet.remove_lower("ffffffffffffffffffffff");
+
         System.out.println(hashSet.show());
 
         System.out.println(hashSet.info());
+        //hashSet.remove_lower("ssssssssssssssssss");
+
+
 
 
 
