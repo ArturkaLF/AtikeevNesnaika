@@ -14,7 +14,8 @@ public class Main {
          */
 
         //GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader(args[0]); // "import" in a task FINAL
-        GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test.csv"); // "import" in a task FINAL
+
+        GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv"); // "import" in a task FINAL
 
         System.out.println(hashSet.show());
         System.out.println(hashSet.sortedList());
@@ -27,14 +28,16 @@ public class Main {
 
         System.out.println(hashSet.info());
 
-
         hashSet.add(new LittleGirl("Звёздочка",new Message("Пожалуйста")));
         hashSet.add(new LittleGirl("Артур",new Message("Ку")));
         hashSet.remove("Артур");
         hashSet.remove("Звёздочка");
 
-
         hashSet.save();
+        hashSet.import_file("test.csv");
+        System.out.println(hashSet.show());
+
+
 //        Conversation conversation=new Conversation();
 //
 //        Neznaika neznaika=new Neznaika("Незнайка");

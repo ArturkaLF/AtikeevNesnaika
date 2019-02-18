@@ -1,4 +1,6 @@
 package story.about.painter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
@@ -36,6 +38,24 @@ public class GirlsHashSet<T> extends HashSet {
     /**
      *
      */
+    public void import_file(String fileName){
+        try{
+            File file = new File(fileName);
+            Scanner s = new Scanner(file); // чтение из файла с помощью класса java.util.Scanner
+            this.removeAll(this);
+            while (s.hasNext()){
+                String[] line = s.nextLine().split(",");
+                this.add(new LittleGirl(line[0], new Message(line[1])));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     *
+     */
     public String sortedList(){
         ArrayList<String> list = new ArrayList<>();
         for (Object o : this) {
@@ -57,6 +77,7 @@ public class GirlsHashSet<T> extends HashSet {
             if (o.toString().equals(element)){
                 this.remove(o);
                 removeCounter++;
+                break;
             }
         }
     }
@@ -86,6 +107,9 @@ public class GirlsHashSet<T> extends HashSet {
         }
     }
 
+    /**
+     *
+     */
     public void save(){
         FileHandler.fileWriter((GirlsHashSet<LittleGirl>) this);
     }
