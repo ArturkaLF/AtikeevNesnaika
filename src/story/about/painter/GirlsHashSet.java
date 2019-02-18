@@ -53,10 +53,10 @@ public class GirlsHashSet<T> extends HashSet {
      *
      */
     public void remove(String element){
-        for (Iterator<LittleGirl> set = this.iterator(); set.hasNext();) {
-            String s = set.next().toString();
-            if(element == set.toString()){
-                set.remove();
+        for (Object o: this) {
+            if (o.toString().equals(element)){
+                this.remove(o);
+                removeCounter++;
             }
         }
     }
