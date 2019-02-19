@@ -1,21 +1,22 @@
 package story.about.painter;
 
 
+import java.util.Scanner;
+
 /**
  *
  */
 public class Main {
     public static void main(String[] args) {
 
+
         //GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader(args[0]); // "import" in a task FINAL
 
         GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv");
 
-        System.out.println(hashSet.show());
+        while (FileHandler.getChoice("Введите save или sort: ",hashSet)){
 
-        hashSet.import_file("test2.csv");
-
-        System.out.println(hashSet.show());
+        }
 
         Conversation conversation=new Conversation();
 
