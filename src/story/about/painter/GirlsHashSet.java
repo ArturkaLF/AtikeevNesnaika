@@ -47,7 +47,7 @@ public class GirlsHashSet<T> extends HashSet {
                 String[] line = s.nextLine().split(",");
                 this.add(new LittleGirl(line[0], new Message(line[1])));
             }
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e){
             e.printStackTrace();
         }
     }
@@ -113,6 +113,29 @@ public class GirlsHashSet<T> extends HashSet {
     public void save(){
         FileHandler.fileWriter((GirlsHashSet<LittleGirl>) this);
     }
+
+    /**
+     *
+     */
+    public void setNeznayka(Neznaika neznaika){
+        for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
+            littleGirl.next().setNeznaika(neznaika);
+        }
+    }
+
+    /**
+     *
+     */
+    public void setTalkHandler(Conversation conversation){
+        for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
+            littleGirl.next().setTalkHandler(conversation);
+        }
+    }
+
+
+
+
+
 
 }
 

@@ -1,41 +1,32 @@
 package story.about.painter;
 
+
+/**
+ *
+ */
 public class Main {
     public static void main(String[] args) {
-
-        /**
-         *
-         */
 
         //GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader(args[0]); // "import" in a task FINAL
 
         GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv");
 
         System.out.println(hashSet.show());
-        System.out.println(hashSet.sortedList());
 
-        hashSet.remove("Артур");
-        hashSet.remove("Ромашка");
-        hashSet.remove("Звёздочка");
+        hashSet.import_file("test2.csv");
 
         System.out.println(hashSet.show());
 
-        System.out.println(hashSet.info());
+        Conversation conversation=new Conversation();
 
-        hashSet.add(new LittleGirl("Звёздочка",new Message("Пожалуйста")));
-        hashSet.add(new LittleGirl("Артур",new Message("Ку")));
-        hashSet.remove("Артур");
-        hashSet.remove("Звёздочка");
-
+        Neznaika neznaika=new Neznaika("Незнайка");
+        hashSet.setNeznayka(neznaika);
+        neznaika.setTalkHandler(conversation);
+        hashSet.setTalkHandler(conversation);
+        neznaika.speak();
         hashSet.save();
-        hashSet.import_file("test.csv");
-        System.out.println(hashSet.show());
 
-
-//        Conversation conversation=new Conversation();
-//
-//        Neznaika neznaika=new Neznaika("Незнайка");
-//
+//        Старая версия программы
 //        LittleGirl zvezdochka = new LittleGirl("Звёздочка",new Message("Пожалуйста"));//new Message() <-- анонимный класс
 //        zvezdochka.setNeznaika(neznaika);
 //        LittleGirl sineglazka = new LittleGirl("Синеглазка",new Message("милый Незнайка"));
