@@ -1,11 +1,5 @@
 package story.about.painter;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.SortedMap;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -15,7 +9,7 @@ public class Main {
 
         //GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader(args[0]); // "import" in a task FINAL
 
-        GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv"); // "import" in a task FINAL
+        GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv");
 
         System.out.println(hashSet.show());
         System.out.println(hashSet.sortedList());
