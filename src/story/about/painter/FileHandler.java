@@ -84,7 +84,13 @@ public class FileHandler {
             System.out.println(girlsHashSet.info());
         }
         else if(s[0].equals("add")){
-            girlsHashSet.add(s[1],s[2]);
+            try{
+                girlsHashSet.add(s[1],s[2]);
+            }catch (ArrayIndexOutOfBoundsException e){
+                System.out.println("Не было введено фразы");
+                System.out.println("Была установлена фраза: Привет");
+                girlsHashSet.add(s[1],"Привет");
+            }
         }
         else if(s[0].equals("remove_lower")){
             girlsHashSet.remove_lower(s[1]);
