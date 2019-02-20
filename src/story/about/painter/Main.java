@@ -1,8 +1,5 @@
 package story.about.painter;
 
-
-import java.util.Scanner;
-
 /**
  *
  */
@@ -14,18 +11,22 @@ public class Main {
 
         GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv");
 
-        while (FileHandler.getChoice("Введите save или sort: ",hashSet)){
+        String help = "save - сохранить коллекцию и тд";
+        while (FileHandler.getChoice("Введите команду управления коллекцией: ", hashSet, help)){
 
         }
 
         Conversation conversation=new Conversation();
-
         Neznaika neznaika=new Neznaika("Незнайка");
         hashSet.setNeznayka(neznaika);
         neznaika.setTalkHandler(conversation);
         hashSet.setTalkHandler(conversation);
         neznaika.speak();
         hashSet.save();
+
+
+
+
 
 //        Старая версия программы
 //        LittleGirl zvezdochka = new LittleGirl("Звёздочка",new Message("Пожалуйста"));//new Message() <-- анонимный класс

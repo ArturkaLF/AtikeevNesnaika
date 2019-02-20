@@ -48,7 +48,8 @@ public class GirlsHashSet<T> extends HashSet {
                 this.add(new LittleGirl(line[0], new Message(line[1])));
             }
         } catch (FileNotFoundException e){
-            e.printStackTrace();
+            System.out.println("Я не могу найти такой файл\nimport произошел из файла test.csv");
+            import_file("test.csv");
         }
     }
 
@@ -131,10 +132,6 @@ public class GirlsHashSet<T> extends HashSet {
             littleGirl.next().setTalkHandler(conversation);
         }
     }
-
-
-
-
 
 
 }

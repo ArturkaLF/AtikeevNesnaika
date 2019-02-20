@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -52,28 +51,56 @@ public class FileHandler {
 
     }
 
-
-
-    public static boolean getChoice(String text, GirlsHashSet girlsHashSet){
+    /**
+     *
+     */
+    public static boolean getChoice(String text, GirlsHashSet girlsHashSet, String help){
         Scanner in = new Scanner(System.in);
         System.out.print(text);
-        String s = in.nextLine();
-        s = s.replaceAll("\\s+","");
-        while ((!s.equalsIgnoreCase("save")) && (!s.equalsIgnoreCase("sort"))
-                && (!s.equalsIgnoreCase("info")) && (!s.equalsIgnoreCase("exite"))){
-            System.out.print("Введите save или sort: ");
-            s = in.nextLine();
+        String[] s = in.nextLine().split(" ");
+        s[0] = s[0].replaceAll("\\s+","");
+
+        while (    (!s[0].equalsIgnoreCase("save"))
+                && (!s[0].equalsIgnoreCase("sort"))
+                && (!s[0].equalsIgnoreCase("info"))
+                && (!s[0].equalsIgnoreCase("add"))
+                && (!s[0].equalsIgnoreCase("import"))
+                && (!s[0].equalsIgnoreCase("help"))
+                && (!s[0].equalsIgnoreCase("show"))
+                && (!s[0].equalsIgnoreCase("remove"))
+                && (!s[0].equalsIgnoreCase("remove_lower"))
+                && (!s[0].equalsIgnoreCase("start"))){
+            System.out.print("Введите команду управления коллекцией: ");
+            s = in.nextLine().split(" ");
         }
-        if(s.equals("save")){
+        if(s[0].equals("save")){
             girlsHashSet.save();
         }
-        else if(s.equals("sort")){
+        else if(s[0].equals("sort")){
             System.out.println(girlsHashSet.sortedList());
         }
-        else if(s.equals("info")){
+        else if(s[0].equals("info")){
             System.out.println(girlsHashSet.info());
         }
-        else if(s.equals("exite")){
+        else if(s[0].equals("add")){
+            girlsHashSet.add(s[1]);
+        }
+        else if(s[0].equals("remove_lower")){
+            girlsHashSet.remove_lower(s[1]);
+        }
+        else if(s[0].equals("show")){
+            System.out.println(girlsHashSet.show());
+        }
+        else if(s[0].equals("help")){
+            System.out.println(help);
+        }
+        else if(s[0].equals("import")){
+            girlsHashSet.import_file(s[1]);
+        }
+        else if(s[0].equals("remove")){
+            girlsHashSet.remove(s[1]);
+        }
+        else if(s[0].equals("start")){
             return false;
         }
         return true;
