@@ -61,6 +61,7 @@ public class UserHandler {
                 && (!s[0].equalsIgnoreCase("import"))
                 && (!s[0].equalsIgnoreCase("help"))
                 && (!s[0].equalsIgnoreCase("show"))
+                && (!s[0].equalsIgnoreCase("exit"))
                 && (!s[0].equalsIgnoreCase("remove"))
                 && (!s[0].equalsIgnoreCase("remove_lower"))
                 && (!s[0].equalsIgnoreCase("start"))){
@@ -102,8 +103,23 @@ public class UserHandler {
             girlsHashSet.remove(s[1]);
         }
         else if(s[0].equals("start")){
+            UserHandler.startMainProgram(girlsHashSet);
+        }
+        else if(s[0].equals("exit")){
             return false;
         }
         return true;
+    }
+
+    /**
+     *
+     */
+    public static void startMainProgram(GirlsHashSet hashSet){
+        Conversation conversation = new Conversation();
+        Neznaika neznaika = new Neznaika("Незнайка");
+        hashSet.setNeznayka(neznaika);
+        neznaika.setTalkHandler(conversation);
+        hashSet.setTalkHandler(conversation);
+        neznaika.speak();
     }
 }

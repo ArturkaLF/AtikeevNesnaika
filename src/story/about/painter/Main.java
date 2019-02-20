@@ -14,20 +14,8 @@ public class Main {
 
 
         String help = "save - сохранить коллекцию и тд (допишу позже)";
-        while (UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, help)){
-
-        }
-
-        Conversation conversation = new Conversation();
-        Neznaika neznaika = new Neznaika("Незнайка");
-        hashSet.setNeznayka(neznaika);
-        neznaika.setTalkHandler(conversation);
-        hashSet.setTalkHandler(conversation);
-        neznaika.speak();
+        while(UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, help)){}
         hashSet.save();
-
-
-
 
 
 //        Старая версия программы
