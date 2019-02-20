@@ -104,8 +104,11 @@ public class UserHandler {
         }
         else if(s[0].equals("start")){
             UserHandler.startMainProgram(girlsHashSet);
+            System.out.println("----------------------------------------\n");
         }
         else if(s[0].equals("exit")){
+            System.out.println("Конец сеанса!!!");
+            System.out.println("Данные сохранены в Out.json");
             return false;
         }
         return true;
