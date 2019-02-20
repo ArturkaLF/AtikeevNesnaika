@@ -29,6 +29,7 @@ public class Main {
 
 
 //        Старая версия программы
+
 //        LittleGirl zvezdochka = new LittleGirl("Звёздочка",new Message("Пожалуйста"));//new Message() <-- анонимный класс
 //        zvezdochka.setNeznaika(neznaika);
 //        LittleGirl sineglazka = new LittleGirl("Синеглазка",new Message("милый Незнайка"));

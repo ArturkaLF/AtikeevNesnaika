@@ -3,7 +3,7 @@ package story.about.painter;
 import java.util.Arrays;
 
 public class Conversation implements TalkHandler {
-    public static final int MAX_MEMBERS=5;
+    public static final int MAX_MEMBERS=50;
     private Talkable members[];
     private int membersCount;
 

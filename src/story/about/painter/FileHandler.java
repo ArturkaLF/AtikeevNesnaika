@@ -24,7 +24,8 @@ public class FileHandler {
                 hashSet.add(new LittleGirl(line[0], new Message(line[1])));
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Я не могу найти такой файл\nimport произошел из файла test.csv");
+            fileReader("test.csv");
         }
         return hashSet;
     }
@@ -34,7 +35,7 @@ public class FileHandler {
      */
     public static void fileWriter(GirlsHashSet<LittleGirl> hashSet){
 
-        File file = new File("Out.txt");
+        File file = new File("Out.json");
 
         try {
             FileWriter writer = new FileWriter(file);
@@ -57,8 +58,7 @@ public class FileHandler {
     public static boolean getChoice(String text, GirlsHashSet girlsHashSet, String help){
         Scanner in = new Scanner(System.in);
         System.out.print(text);
-        String[] s = in.nextLine().split(" ");
-        s[0] = s[0].replaceAll("\\s+","");
+        String[] s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
 
         while (    (!s[0].equalsIgnoreCase("save"))
                 && (!s[0].equalsIgnoreCase("sort"))
@@ -70,8 +70,9 @@ public class FileHandler {
                 && (!s[0].equalsIgnoreCase("remove"))
                 && (!s[0].equalsIgnoreCase("remove_lower"))
                 && (!s[0].equalsIgnoreCase("start"))){
+            System.out.println("Ошибка! Такой команды нет");
             System.out.print("Введите команду управления коллекцией: ");
-            s = in.nextLine().split(" ");
+            s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
         }
         if(s[0].equals("save")){
             girlsHashSet.save();
@@ -83,7 +84,7 @@ public class FileHandler {
             System.out.println(girlsHashSet.info());
         }
         else if(s[0].equals("add")){
-            girlsHashSet.add(s[1]);
+            girlsHashSet.add(s[1],s[2]);
         }
         else if(s[0].equals("remove_lower")){
             girlsHashSet.remove_lower(s[1]);

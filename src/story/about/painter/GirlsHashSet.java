@@ -18,10 +18,10 @@ public class GirlsHashSet<T> extends HashSet {
     /**
      *
      */
-    @Override
-    public boolean add(Object o) {
+    public void add(String name, String text) {
+        this.add(new LittleGirl(name, new Message(text)));
         addCounter++;
-        return super.add(o);
+
     }
 
     /**
