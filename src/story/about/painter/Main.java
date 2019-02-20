@@ -7,17 +7,19 @@ public class Main {
     public static void main(String[] args) {
 
 
-        //GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader(args[0]); // "import" in a task FINAL
+        //GirlsHashSet<LittleGirl> hashSet = UserHandler.fileReader(args[0]); // "import" in a task FINAL
 
-        GirlsHashSet<LittleGirl> hashSet = FileHandler.fileReader("test2.csv");
+        GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
+        hashSet.import_file("test.csv");
 
-        String help = "save - сохранить коллекцию и тд";
-        while (FileHandler.getChoice("Введите команду управления коллекцией: ", hashSet, help)){
+
+        String help = "save - сохранить коллекцию и тд (допишу позже)";
+        while (UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, help)){
 
         }
 
-        Conversation conversation=new Conversation();
-        Neznaika neznaika=new Neznaika("Незнайка");
+        Conversation conversation = new Conversation();
+        Neznaika neznaika = new Neznaika("Незнайка");
         hashSet.setNeznayka(neznaika);
         neznaika.setTalkHandler(conversation);
         hashSet.setTalkHandler(conversation);

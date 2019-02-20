@@ -1,6 +1,8 @@
 package story.about.painter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -112,7 +114,22 @@ public class GirlsHashSet<T> extends HashSet {
      *
      */
     public void save(){
-        FileHandler.fileWriter((GirlsHashSet<LittleGirl>) this);
+
+        File file = new File("Out.json");
+
+        try {
+            FileWriter writer = new FileWriter(file);
+            writer.write("{"+"\n");
+            for (LittleGirl littleGirl : (Iterable<LittleGirl>) this) {
+                writer.write("\"" + littleGirl.toString() + "\"" + ":"
+                        + "\"" + littleGirl.getMsg() + "\"" + "," + "\n");
+            }
+            writer.write("}");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
