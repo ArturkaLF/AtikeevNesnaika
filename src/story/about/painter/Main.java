@@ -6,15 +6,16 @@ package story.about.painter;
 public class Main {
     public static void main(String[] args) {
 
-
-        //GirlsHashSet<LittleGirl> hashSet = UserHandler.fileReader(args[0]); // "import" in a task FINAL
+        final String HELP = "save - сохранить коллекцию и тд (допишу позже)";
 
         GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
-        hashSet.import_file("test.csv");
+        try {
+            hashSet.import_file(args[0]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            hashSet.import_file("test.csv");
+        }
 
-
-        String help = "save - сохранить коллекцию и тд (допишу позже)";
-        while(UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, help)){}
+        while(UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, HELP)){}
         hashSet.save();
 
 

@@ -7,45 +7,6 @@ import java.util.Scanner;
 
 public class UserHandler {
 
-    //метод для возврата hasSet из файла. Был заменен на метод import_file(fileName) из класса GirlsHashSet
-//    public static GirlsHashSet<LittleGirl> fileReader(String fileName){
-//        GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
-//        try{
-//            File file = new File(fileName);
-//            Scanner s = new Scanner(file); // чтение из файла с помощью класса java.util.Scanner
-//            while (s.hasNext()){
-//                String[] line = s.nextLine().split(",");
-//                hashSet.add(new LittleGirl(line[0], new Message(line[1])));
-//            }
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Я не могу найти такой файл\nimport произошел из файла test.csv");
-//            fileReader("test.csv");
-//        }
-//        return hashSet;
-//    }
-
-    //метод для записи hasSet в файл. Был заменен на метод save(fileName) из класса GirlsHashSe
-//    /**
-//     *
-//     */
-//    public static void fileWriter(GirlsHashSet<LittleGirl> hashSet){
-//
-//        File file = new File("Out.json");
-//
-//        try {
-//            FileWriter writer = new FileWriter(file);
-//            writer.write("{"+"\n");
-//            for (LittleGirl littleGirl : (Iterable<LittleGirl>) hashSet) {
-//                writer.write("\"" + littleGirl.toString() + "\"" + ":"
-//                        + "\"" + littleGirl.getMsg() + "\"" + "," + "\n");
-//            }
-//            writer.write("}");
-//            writer.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     /**
      *
      */
