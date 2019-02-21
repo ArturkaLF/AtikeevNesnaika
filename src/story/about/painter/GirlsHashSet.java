@@ -93,7 +93,7 @@ public class GirlsHashSet<T> extends HashSet {
                 "Количество элементов: " + this.size() + "\n" +
                 "HashCode: " + this.hashCode() + "\n" +
                 "Количество удаленных элементов: " + this.removeCounter + "\n" +
-                "Количевтво добавленныз элементво: " + this.addCounter;
+                "Количевтво добавленных элементво: " + this.addCounter;
     }
 
 

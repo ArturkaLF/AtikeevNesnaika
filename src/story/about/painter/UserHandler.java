@@ -45,11 +45,22 @@ public class UserHandler {
             }catch (ArrayIndexOutOfBoundsException e){
                 System.out.println("Не было введено фразы");
                 System.out.println("Была установлена фраза: Привет");
-                girlsHashSet.add(s[1],"Привет");
+                try{
+                    girlsHashSet.add(s[1],"Привет");
+                }catch (ArrayIndexOutOfBoundsException e1){
+                    girlsHashSet.add("Рома", "Привет");
+                    System.out.println("Не было введено имени");
+                    System.out.println("Была установлено имя: Рома");
+                }
             }
         }
         else if(s[0].equals("remove_lower")){
-            girlsHashSet.remove_lower(s[1]);
+            try{
+                girlsHashSet.remove_lower(s[1]);
+            }catch (ArrayIndexOutOfBoundsException e1){
+                girlsHashSet.remove("");
+
+            }
         }
         else if(s[0].equals("show")){
             System.out.println(girlsHashSet.show());
@@ -58,7 +69,11 @@ public class UserHandler {
             System.out.println(help);
         }
         else if(s[0].equals("import")){
-            girlsHashSet.import_file(s[1]);
+            try{
+                girlsHashSet.import_file(s[1]);
+            }catch (ArrayIndexOutOfBoundsException e1){
+                girlsHashSet.import_file("test.csv");
+            }
         }
         else if(s[0].equals("remove")){
             girlsHashSet.remove(s[1]);
