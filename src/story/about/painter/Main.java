@@ -6,7 +6,18 @@ package story.about.painter;
 public class Main {
     public static void main(String[] args) {
 
-        final String HELP = "save - сохранить коллекцию и тд (допишу позже)";
+        final String HELP = "           Команды для интерактивного управления коллекцией \n" +
+                "add element:          |добавить новый элемент в коллекцию.\n" +
+                "show:                 |вывести в стандартный поток вывода все элементы коллекции в строковом представлении.\n" +
+                "import path:          |добавить в коллекцию все данные из файла.\n" +
+                "save:                 |сохранить коллекцию в файл.\n" +
+                "sort:                 |вывод итсортированного список элементов коллекции.\n" +
+                "info:                 |вывести в стандартный поток вывода основную информацию о коллекции.\n" +
+                "remove element:       |удалить элемент из коллекции по его значению.\n" +
+                "remove_lower element: |удалить из коллекции все элементы, меньшие, чем заданный.\n" +
+                "start:                |запустить основную программу для настроенной коллекции.\n" +
+                "exit:                 |выход из программы (сохранение текущей коллекции в файл)\n" +
+                "help:                 |вывод списка доступных команд.\n";
 
         GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
         try {
@@ -15,6 +26,7 @@ public class Main {
             hashSet.import_file("test.csv");
         }
 
+        System.out.println(HELP);
         while(UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, HELP)){}
         hashSet.save();
 
