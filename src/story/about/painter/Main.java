@@ -1,11 +1,13 @@
 package story.about.painter;
 
-/**
- *
- */
 public class Main {
     public static void main(String[] args) {
 
+        /**
+         *
+         * @author Атикеев Роман
+         * @version 1.1
+         */
         final String HELP = "           Команды для интерактивного управления коллекцией \n" +
                 "add element:          |добавить новый элемент в коллекцию.\n" +
                 "show:                 |вывести в стандартный поток вывода все элементы коллекции в строковом представлении.\n" +

@@ -2,13 +2,17 @@ package story.about.painter;
 import java.util.Scanner;
 
 /**
- *
+ * Класс обработчик пользовательских запросов
+ * @author Атикеев Роман
+ * @version 1.1
  */
 
 public class UserHandler {
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public static boolean getChoice(String text, GirlsHashSet girlsHashSet, String help){
         Scanner in = new Scanner(System.in);
@@ -91,7 +95,9 @@ public class UserHandler {
     }
 
     /**
-     *
+     * Метод для запуска основной части программы с настроенной коллекцией
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public static void startMainProgram(GirlsHashSet hashSet){
         Conversation conversation = new Conversation();

@@ -6,19 +6,25 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- *
+ * Сатический метод для обработки запросов пользователя
+ * @author Атикеев Роман
+ * @version 1.1
  */
 
 public class GirlsHashSet<T> extends HashSet {
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     private int removeCounter = 0;
     private int addCounter = 0;
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void add(String name, String text) {
         this.add(new LittleGirl(name, new Message(text)));
@@ -27,7 +33,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public String show(){
         String line = "";
@@ -38,7 +46,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void import_file(String fileName){
         try{
@@ -57,7 +67,9 @@ public class GirlsHashSet<T> extends HashSet {
 
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public String sortedList(){
         ArrayList<String> list = new ArrayList<>();
@@ -73,7 +85,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void remove(String element){
         for (Object o: this) {
@@ -86,7 +100,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public String info(){
         return  "Подробная информация о коллекции: " + this.getClass() + "\n" +
@@ -98,7 +114,9 @@ public class GirlsHashSet<T> extends HashSet {
 
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void remove_lower(String element){
         for (Iterator<LittleGirl> set = this.iterator(); set.hasNext();) {
@@ -111,7 +129,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void save(){
 
@@ -133,7 +153,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void setNeznayka(Neznaika neznaika){
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
@@ -142,7 +164,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     *
+     * Сатический метод для обработки запросов пользователя
+     * @author Атикеев Роман
+     * @version 1.1
      */
     public void setTalkHandler(Conversation conversation){
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
