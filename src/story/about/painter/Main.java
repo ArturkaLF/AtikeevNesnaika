@@ -3,6 +3,7 @@ package story.about.painter;
 public class Main {
     public static void main(String[] args) {
 
+        // Интсрукция по командам для пользователя
         final String HELP = "           Команды для интерактивного управления коллекцией \n" +
                 "add element:          |добавить новый элемент в коллекцию.\n" +
                 "show:                 |вывести в стандартный поток вывода все элементы коллекции в строковом представлении.\n" +
@@ -16,6 +17,7 @@ public class Main {
                 "exit:                 |выход из программы (сохранение текущей коллекции в файл)\n" +
                 "help:                 |вывод списка доступных команд.\n";
 
+        // Создание коллекции через аргумент. Если аргумента нет, то коллекция создается по элементам файла test.csv
         GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
         try {
             hashSet.import_file(args[0]);
@@ -23,8 +25,11 @@ public class Main {
             hashSet.import_file("test.csv");
         }
 
+        // Вывод инструкции для начала работы пользователя
         System.out.println(HELP);
+        // Запуск цикла обработчика пользовательских запросов
         while(UserHandler.getChoice("Введите команду управления коллекцией: ", hashSet, HELP)){}
+        //Сохранение коллекции в файл
         hashSet.save();
 
 
