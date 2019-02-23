@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Сатический метод для обработки запросов пользователя
+ * Класс-коллекия основанная на HashSet
+ *
  * @author Атикеев Роман
  * @version 1.1
  */
@@ -14,28 +15,29 @@ import java.util.*;
 public class GirlsHashSet<T> extends HashSet {
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Поле-счетчик удаленных элементов коллекции
      */
     private int removeCounter = 0;
+    /**
+     * Поле-счетчик добавленных элементов коллекции
+     */
     private int addCounter = 0;
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод добавления нового элемента коллекции
+     *
+     * @param name имя нового элемента коллекции (имя девочки)
+     * @param text текст нового элемента коллекции (речь девочки)
      */
     public void add(String name, String text) {
         this.add(new LittleGirl(name, new Message(text)));
         addCounter++;
-
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод вывода списка элементов коллекции
+     *
+     * @return Список элеметов коллекции
      */
     public String show(){
         String line = "";
@@ -46,9 +48,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод чтения новых элементов коллекции из выбранного файла
+     *
+     * @param fileName имя файла откуда будет проходить чтение
      */
     public void import_file(String fileName){
         try{
@@ -67,9 +69,9 @@ public class GirlsHashSet<T> extends HashSet {
 
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод вывода отсортированного списка элеметов коллекции
+     *
+     * @return отсортированный список элементов коллекции по длине имени
      */
     public String sortedList(){
         ArrayList<String> list = new ArrayList<>();
@@ -85,9 +87,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод удаления элемента коллекции
+     *
+     * @param element элемент для удаления
      */
     public void remove(String element){
         for (Object o: this) {
@@ -100,9 +102,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод вывода информации о коллекции
+     *
+     * @return подробная информация о коллекции(кол-во элементов, кол-во удаленных элементов и т.д.)
      */
     public String info(){
         return  "Подробная информация о коллекции: " + this.getClass() + "\n" +
@@ -114,9 +116,9 @@ public class GirlsHashSet<T> extends HashSet {
 
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод удаления элеметов коллекции меньших чем введеный
+     *
+     * @param element элемент для сравнения
      */
     public void remove_lower(String element){
         for (Iterator<LittleGirl> set = this.iterator(); set.hasNext();) {
@@ -129,9 +131,7 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод сохранения коллекции в файл (Out.json)
      */
     public void save(){
 
@@ -153,9 +153,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод настройки Незнайки для каждого элемента коллекции
+     *
+     * @param neznaika объект Незнайка для привязки
      */
     public void setNeznayka(Neznaika neznaika){
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
@@ -164,9 +164,9 @@ public class GirlsHashSet<T> extends HashSet {
     }
 
     /**
-     * Сатический метод для обработки запросов пользователя
-     * @author Атикеев Роман
-     * @version 1.1
+     * Метод настройки разговора для всех элементов коллекции
+     *
+     * @param conversation объект разговора для привязки
      */
     public void setTalkHandler(Conversation conversation){
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
