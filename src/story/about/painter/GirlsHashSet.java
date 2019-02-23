@@ -83,15 +83,20 @@ public class GirlsHashSet<T> extends HashSet {
      * @return отсортированный список элементов коллекции по длине имени
      */
     public String sortedList(){
+        // Создаем список
         ArrayList<String> list = new ArrayList<>();
+        // Добавляем туда наши элементы коллекции
         for (Object o : this) {
             list.add(o.toString());
         }
+        // Сортим список
         list.sort(Comparator.comparingInt(String::length));
         String s ="";
+        // Добавляем все элементы этого списка в строку
         for (Object o : list) {
             s = s.concat(o.toString()).concat(" ");
         }
+        // Выводим отсортированный список наших элементов
         return s;
     }
 
@@ -101,7 +106,9 @@ public class GirlsHashSet<T> extends HashSet {
      * @param element элемент для удаления
      */
     public void remove(String element){
+        // Сравниваем каждый элемент коллекции с введеным элементов
         for (Object o: this) {
+            // Находим его и удаляем
             if (o.toString().equals(element)){
                 this.remove(o);
                 removeCounter++;
@@ -130,9 +137,10 @@ public class GirlsHashSet<T> extends HashSet {
      * @param element элемент для сравнения
      */
     public void remove_lower(String element){
+        // Проходимся по нашей коллекции
         for (Iterator<LittleGirl> set = this.iterator(); set.hasNext();) {
-            String s = set.next().toString();
-            if(element.length() > s.length()){
+            // Удаляем элементы меньшие по длине чем введеный
+            if(element.length() > set.next().toString().length()){
                 set.remove();
                 removeCounter++;
             }
@@ -145,7 +153,6 @@ public class GirlsHashSet<T> extends HashSet {
     public void save(){
 
         File file = new File("Out.json");
-
         try {
             FileWriter writer = new FileWriter(file);
             writer.write("{"+"\n");
@@ -167,6 +174,7 @@ public class GirlsHashSet<T> extends HashSet {
      * @param neznaika объект Незнайка для привязки
      */
     public void setNeznayka(Neznaika neznaika){
+        // Юзаем старый метод ко всем элементам коллекции
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
             littleGirl.next().setNeznaika(neznaika);
         }
@@ -178,6 +186,7 @@ public class GirlsHashSet<T> extends HashSet {
      * @param conversation объект разговора для привязки
      */
     public void setTalkHandler(Conversation conversation){
+        // Юзаем старый метод ко всем элементам коллекции
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
             littleGirl.next().setTalkHandler(conversation);
         }
