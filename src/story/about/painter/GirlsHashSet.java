@@ -40,6 +40,7 @@ public class GirlsHashSet<T> extends HashSet {
      * @return Список элеметов коллекции
      */
     public String show(){
+        // Создаем строку, куда добавляем все имена нашей коллекции
         String line = "";
         for (Object o : this) {
             line = line.concat(o.toString()).concat(" ");
@@ -55,14 +56,22 @@ public class GirlsHashSet<T> extends HashSet {
     public void import_file(String fileName){
         try{
             File file = new File(fileName);
-            Scanner s = new Scanner(file); // чтение из файла с помощью класса java.util.Scanner
+            // чтение из файла с помощью класса java.util.Scanner
+            Scanner s = new Scanner(file);
+            // Удаляем все элементы коллекции
+            // мы их заменим на новые
             this.removeAll(this);
             while (s.hasNext()){
+                // Читаем строчку и делим ее на элементы массива
                 String[] line = s.nextLine().split(",");
+                // Первый элемент добавляем как имя элемента коллекции
+                // второй элмент - текст этого элемента
                 this.add(new LittleGirl(line[0], new Message(line[1])));
             }
         } catch (FileNotFoundException e){
+            // Если файл не был найден
             System.out.println("Я не могу найти такой файл\nimport произошел из файла test.csv");
+            // читаем из файла test.csv
             import_file("test.csv");
         }
     }
