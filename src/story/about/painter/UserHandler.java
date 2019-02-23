@@ -98,6 +98,7 @@ public class UserHandler {
             girlsHashSet.remove(s[1]);
         }
         else if(s[0].equals("start")){
+            System.out.println("----------------------------------------\n");
             UserHandler.startMainProgram(girlsHashSet);
             System.out.println("----------------------------------------\n");
         }
