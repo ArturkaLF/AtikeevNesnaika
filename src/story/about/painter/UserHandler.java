@@ -18,10 +18,13 @@ public class UserHandler {
      * @param help стркоа инструкции по камандам
      */
     public static boolean getChoice(String text, GirlsHashSet girlsHashSet, String help){
+        // Сканим пользовательский ввод
         Scanner in = new Scanner(System.in);
         System.out.print(text);
+        // Разбиваем ввод пользователя на массив строк
         String[] s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
 
+        // Проверяем команду на список существующих команд
         while (    (!s[0].equalsIgnoreCase("save"))
                 && (!s[0].equalsIgnoreCase("sort"))
                 && (!s[0].equalsIgnoreCase("info"))
@@ -33,10 +36,16 @@ public class UserHandler {
                 && (!s[0].equalsIgnoreCase("remove"))
                 && (!s[0].equalsIgnoreCase("remove_lower"))
                 && (!s[0].equalsIgnoreCase("start"))){
+            // Если введеной команды не существует, выводим сообщение, что произошла ошибка
             System.out.println("Ошибка! Такой команды нет");
             System.out.print("Введите команду управления коллекцией: ");
+            // Запращиваем новую строчку от пользователя и так же делим ее
             s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
         }
+        // Если строчка запроса прошла первую проверку
+        // переходим к сравнению введеной команды с существующими
+        // Если запрос совпадает с существующей командой
+        // выполняем эту команду
         if(s[0].equals("save")){
             girlsHashSet.save();
         }
@@ -50,11 +59,13 @@ public class UserHandler {
             try{
                 girlsHashSet.add(s[1],s[2]);
             }catch (ArrayIndexOutOfBoundsException e){
+                // Если пользователь не ввел фразы но ввел имя
                 System.out.println("Не было введено фразы");
                 System.out.println("Была установлена фраза: Привет");
                 try{
                     girlsHashSet.add(s[1],"Привет");
                 }catch (ArrayIndexOutOfBoundsException e1){
+                    // Если пользователь не ввел имя и фразу
                     girlsHashSet.add("Рома", "Привет");
                     System.out.println("Не было введено имени");
                     System.out.println("Была установлено имя: Рома");
@@ -65,8 +76,8 @@ public class UserHandler {
             try{
                 girlsHashSet.remove_lower(s[1]);
             }catch (ArrayIndexOutOfBoundsException e1){
+                //Если пользователь не ввел элемент для сравнения
                 girlsHashSet.remove("");
-
             }
         }
         else if(s[0].equals("show")){
@@ -79,6 +90,7 @@ public class UserHandler {
             try{
                 girlsHashSet.import_file(s[1]);
             }catch (ArrayIndexOutOfBoundsException e1){
+                // Если пользователь не ввел файл для чтения
                 girlsHashSet.import_file("test.csv");
             }
         }
@@ -103,6 +115,8 @@ public class UserHandler {
      * @param hashSet коллекция для запуска основной части программы
      */
     public static void startMainProgram(GirlsHashSet hashSet){
+        // Здесь запускаем прогу с 4 лабы, но юзаем новые методы коллекции,
+        // которые позволяют вызывать старые методы для каждого элемента
         Conversation conversation = new Conversation();
         Neznaika neznaika = new Neznaika("Незнайка");
         hashSet.setNeznayka(neznaika);
