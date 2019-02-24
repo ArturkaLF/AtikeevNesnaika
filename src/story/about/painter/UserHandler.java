@@ -46,6 +46,16 @@ public class UserHandler {
         // переходим к сравнению введеной команды с существующими
         // Если запрос совпадает с существующей командой
         // выполняем эту команду
+
+        try{
+            s[1] = s[1].replace("}","").replace("{","");
+        }catch (ArrayIndexOutOfBoundsException ignored){}
+
+        try {
+            s[2] = s[2].replace("}","").replace("{","");
+        }catch (ArrayIndexOutOfBoundsException ignored){}
+
+
         if(s[0].equals("save")){
             girlsHashSet.save();
         }
@@ -88,6 +98,8 @@ public class UserHandler {
         }
         else if(s[0].equals("import")){
             try{
+
+
                 girlsHashSet.import_file(s[1]);
             }catch (ArrayIndexOutOfBoundsException e1){
                 // Если пользователь не ввел файл для чтения
