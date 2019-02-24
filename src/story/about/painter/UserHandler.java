@@ -21,7 +21,7 @@ public class UserHandler {
         // Сканим пользовательский ввод
         Scanner in = new Scanner(System.in);
         System.out.print(text);
-        // Разбиваем ввод пользователя на массив строк
+        // Разбиваем ввод пользователя на массив строк (игнорим пробелы)
         String[] s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
 
         // Проверяем команду на список существующих команд
