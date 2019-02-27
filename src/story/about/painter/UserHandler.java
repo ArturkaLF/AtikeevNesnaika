@@ -23,7 +23,6 @@ public class UserHandler {
         System.out.print(text);
         // Разбиваем ввод пользователя на массив строк (игнорим пробелы)
         String[] s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
-
         // Проверяем команду на список существующих команд
         while (    (!s[0].equalsIgnoreCase("save"))
                 && (!s[0].equalsIgnoreCase("sort"))
