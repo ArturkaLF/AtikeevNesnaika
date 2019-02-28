@@ -1,4 +1,4 @@
-package story.about.painter;
+package story.about.painter.VA;
 
 import java.util.Arrays;
 

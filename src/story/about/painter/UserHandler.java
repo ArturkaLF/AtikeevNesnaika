@@ -1,4 +1,7 @@
 package story.about.painter;
+import story.about.painter.VA.Conversation;
+import story.about.painter.VA.Neznaika;
+
 import java.util.Scanner;
 
 /**

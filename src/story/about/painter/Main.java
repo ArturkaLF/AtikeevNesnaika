@@ -1,8 +1,6 @@
 package story.about.painter;
 
-import story.about.painter.Commands.AddComand;
-import story.about.painter.Commands.InfoCommand;
-import story.about.painter.Commands.ShowCommand;
+import story.about.painter.VA.LittleGirl;
 
 
 public class Main {
@@ -12,16 +10,6 @@ public class Main {
 
         GirlsHashSet<LittleGirl> hashSet = new GirlsHashSet<>();
 
-        Command info = new InfoCommand(hashSet);
-        Command add = new AddComand(hashSet,"artur","hello");
-        Navigator navigator = new Navigator(info);
-        navigator.go();
-
-        navigator.setCommand(add);
-        navigator.go();
-
-        navigator.setCommand(info);
-        navigator.go();
 
 
 

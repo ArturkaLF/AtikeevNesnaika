@@ -1,4 +1,4 @@
-package story.about.painter;
+package story.about.painter.VA;
 
 public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
     private Neznaika neznaika;//Незнайка - партнер для разговора
@@ -23,7 +23,7 @@ public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
 
     @Override
     public boolean shouldSpeak() {
-        return getMood()!=Mood.ANGRY&&(neznaika.getMood()!=Mood.PLEASED);//Говорит, если хочет и если Незнайка не доволен
+        return getMood()!= Mood.ANGRY&&(neznaika.getMood()!=Mood.PLEASED);//Говорит, если хочет и если Незнайка не доволен
     }
 
     public String toString(){

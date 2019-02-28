@@ -1,7 +1,5 @@
 package story.about.painter;
 
-import story.about.painter.Commands.AddComand;
-
 import java.util.Scanner;
 
 public class UserHandlerTest {
@@ -27,35 +25,58 @@ public class UserHandlerTest {
             s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
         }
 
-        Navigator navigator = new Navigator();
+        try{
+            s[1] = s[1].replace("}","").replace("{","");
+        }catch (ArrayIndexOutOfBoundsException ignored){}
 
+        try {
+            s[2] = s[2].replace("}","").replace("{","");
+        }catch (ArrayIndexOutOfBoundsException ignored){}
+
+        Navigator navigator = new Navigator();
 
         switch (s[1]){
 
+            case "info":
+                navigator.setCommand(()->{
+                    System.out.println(girlsHashSet.info());
+                });
+                navigator.go();
+                break;
+
             case "show":
-
-
-
-
-
+                navigator.setCommand(()->{
+                    System.out.println(girlsHashSet.show());
+                });
+                navigator.go();
                 break;
 
             case "add":
-                Command add;
+
+                String[] finalS = s;
+                navigator.setCommand(() -> {
                 try{
-                    add = new AddComand(girlsHashSet,s[1],s[2]);
+                    girlsHashSet.add(finalS[1], finalS[2]);
                 }catch (ArrayIndexOutOfBoundsException e){
                     System.out.println("Не было введено фразы");
                     System.out.println("Была установлена фраза: Привет");
                     try{
-                        add = new AddComand(girlsHashSet,s[1],"Привет");
+                        girlsHashSet.add(finalS[1], "Привет");
                     }catch (ArrayIndexOutOfBoundsException e1){
-                        add = new AddComand(girlsHashSet,"Рома","Привет");
+                        girlsHashSet.add("Рома", "Привет");
                         System.out.println("Не было введено имени");
                         System.out.println("Была установлено имя: Рома");
                     }
                 }
-                navigator.setCommand(add);
+                });
+                navigator.go();
+                break;
+
+            case "exite":
+                return false;
+
+            default:
+                return true;
         }
 
 
@@ -67,13 +88,7 @@ public class UserHandlerTest {
 
 
 
-        try{
-            s[1] = s[1].replace("}","").replace("{","");
-        }catch (ArrayIndexOutOfBoundsException ignored){}
 
-        try {
-            s[2] = s[2].replace("}","").replace("{","");
-        }catch (ArrayIndexOutOfBoundsException ignored){}
 
 
 
@@ -87,21 +102,6 @@ public class UserHandlerTest {
         }
         else if(s[0].equals("info")){
             System.out.println(girlsHashSet.info());
-        }
-        else if(s[0].equals("add")){
-            try{
-                girlsHashSet.add(s[1],s[2]);
-            }catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("Не было введено фразы");
-                System.out.println("Была установлена фраза: Привет");
-                try{
-                    girlsHashSet.add(s[1],"Привет");
-                }catch (ArrayIndexOutOfBoundsException e1){
-                    girlsHashSet.add("Рома", "Привет");
-                    System.out.println("Не было введено имени");
-                    System.out.println("Была установлено имя: Рома");
-                }
-            }
         }
         else if(s[0].equals("remove_lower")){
             try{
