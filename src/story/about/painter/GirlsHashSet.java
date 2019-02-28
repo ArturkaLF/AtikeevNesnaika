@@ -1,8 +1,8 @@
 package story.about.painter;
-import story.about.painter.VA.Conversation;
-import story.about.painter.VA.LittleGirl;
-import story.about.painter.VA.Message;
-import story.about.painter.VA.Neznaika;
+import story.about.painter.va.Conversation;
+import story.about.painter.va.LittleGirl;
+import story.about.painter.va.Message;
+import story.about.painter.va.Neznaika;
 
 import java.io.File;
 import java.io.FileNotFoundException;

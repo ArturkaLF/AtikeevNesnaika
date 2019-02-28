@@ -1,6 +1,6 @@
 //package story.about.painter;
-//import story.about.painter.VA.Conversation;
-//import story.about.painter.VA.Neznaika;
+//import story.about.painter.va.Conversation;
+//import story.about.painter.va.Neznaika;
 //
 //import java.util.Scanner;
 //

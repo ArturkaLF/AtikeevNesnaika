@@ -1,6 +1,4 @@
-package story.about.painter.VA;
-
-import story.about.painter.VA.Talkable;
+package story.about.painter.va;
 
 public interface TalkHandler {//Обработчик беседы
     void addTalkable(Talkable talkable);//Добавить участника

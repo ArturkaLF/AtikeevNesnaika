@@ -1,6 +1,6 @@
 package story.about.painter;
 
-import story.about.painter.VA.LittleGirl;
+import story.about.painter.va.LittleGirl;
 
 
 public class Main {

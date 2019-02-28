@@ -1,4 +1,4 @@
-package story.about.painter.VA;
+package story.about.painter.va;
 
 public class Neznaika extends LittleMan {
 

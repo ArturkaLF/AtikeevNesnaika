@@ -1,11 +1,24 @@
 package story.about.painter;
 
+import java.util.ArrayList;
+
 public class Navigator {
 
     private Command command;
+    private ArrayList<Command> listCommands;
 
     public void setCommand(Command command){
         this.command = command;
+    }
+
+    public void addCommand(Command command){
+        listCommands.add(command);
+    }
+
+    public void run(){
+        for(Command command:listCommands){
+            command.execute();
+        }
     }
 
     public void go(){
