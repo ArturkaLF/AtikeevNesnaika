@@ -123,18 +123,12 @@ public class UserHandler {
                         }
                     break;
 
-                case "exite":
+                case "exit":
                     link = false;
 
             }
 
         }
-
-
-
-
-
-
 
 
     }

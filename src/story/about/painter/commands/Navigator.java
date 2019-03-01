@@ -1,6 +1,5 @@
 package story.about.painter.commands;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Navigator {
@@ -28,7 +27,5 @@ public class Navigator {
     public void go(){
         command.execute();
     }
-
-
 
 }
