@@ -1,4 +1,4 @@
-package story.about.painter.va;
+package story.about.painter.mp;
 
 public interface Talkable {//Интерфейс собеседника
     void speak();//Говорить

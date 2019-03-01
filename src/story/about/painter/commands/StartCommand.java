@@ -1,8 +1,8 @@
 package story.about.painter.commands;
 
 import story.about.painter.GirlsHashSet;
-import story.about.painter.va.Conversation;
-import story.about.painter.va.Neznaika;
+import story.about.painter.mp.Conversation;
+import story.about.painter.mp.Neznaika;
 
 public class StartCommand implements Command {
 

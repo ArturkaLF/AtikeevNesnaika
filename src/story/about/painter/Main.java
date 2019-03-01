@@ -4,7 +4,7 @@ import story.about.painter.commands.Command;
 import story.about.painter.commands.ImportCommand;
 import story.about.painter.commands.Navigator;
 import story.about.painter.commands.SaveCommand;
-import story.about.painter.va.LittleGirl;
+import story.about.painter.mp.LittleGirl;
 
 
 public class Main {
@@ -36,7 +36,7 @@ public class Main {
         navigator.setCommand(importFile);
 
         System.out.println(HELP);
-        UserHandlerTest.getChoice("Введите команду управления коллекцией: ", girlGirlsHashSet, HELP);
+        UserHandler.getChoice("Введите команду управления коллекцией: ", girlGirlsHashSet, HELP);
 
         Command save = new SaveCommand(girlGirlsHashSet);
         navigator.setCommand(save);

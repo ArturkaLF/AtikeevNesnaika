@@ -1,4 +1,4 @@
-package story.about.painter.va;
+package story.about.painter.mp;
 
 public class LittleGirl extends LittleMan implements Comparable<LittleGirl>{
     private Neznaika neznaika;//Незнайка - партнер для разговора

@@ -1,4 +1,4 @@
-package story.about.painter.va;
+package story.about.painter.mp;
 
 public enum Mood {
     ANGRY,NORMAL,PLEASED;

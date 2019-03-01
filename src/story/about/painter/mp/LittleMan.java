@@ -1,8 +1,8 @@
-package story.about.painter.va;
+package story.about.painter.mp;
 
 import java.util.Objects;
 
-import static story.about.painter.va.Message.Mood.*;
+import static story.about.painter.mp.Message.Mood.*;
 
 public abstract class LittleMan implements Talkable {//Абстрактный класс малышей
 
