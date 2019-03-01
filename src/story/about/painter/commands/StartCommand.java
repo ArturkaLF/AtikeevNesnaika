@@ -1,6 +1,5 @@
 package story.about.painter.commands;
 
-import story.about.painter.Command;
 import story.about.painter.GirlsHashSet;
 import story.about.painter.va.Conversation;
 import story.about.painter.va.Neznaika;

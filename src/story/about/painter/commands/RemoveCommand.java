@@ -2,16 +2,18 @@ package story.about.painter.commands;
 
 import story.about.painter.GirlsHashSet;
 
-public class ShowCommand implements Command {
+public class RemoveCommand implements Command {
 
     private GirlsHashSet girlsHashSet;
+    private String name;
 
-    public ShowCommand(GirlsHashSet girlsHashSet) {
+    public RemoveCommand(GirlsHashSet girlsHashSet, String name) {
         this.girlsHashSet = girlsHashSet;
+        this.name = name;
     }
 
     @Override
     public void execute() {
-        System.out.println(girlsHashSet.show());
+        girlsHashSet.remove(name);
     }
 }

@@ -42,10 +42,23 @@ public class UserHandlerTest {
 
             switch (s[0]){
 
+                case "remove":
+                    Command remove;
+                    try{
+                        remove = new RemoveCommand(girlsHashSet,s[1]);
+                        navigator.setCommand(remove);
+                        navigator.go();
+                        System.out.println("Элемент удален");
+                    }catch (ArrayIndexOutOfBoundsException e){
+                        System.out.println("Нет элемента с таким именем");
+                    }
+                    break;
+
                 case "start":
                     Command start = new StartCommand(girlsHashSet);
                     navigator.setCommand(start);
                     navigator.go();
+                    break;
 
                 case "save":
                     Command save = new SaveCommand(girlsHashSet);

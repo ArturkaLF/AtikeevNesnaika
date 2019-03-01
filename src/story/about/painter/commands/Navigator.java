@@ -1,4 +1,6 @@
-package story.about.painter;
+package story.about.painter.commands;
+
+import story.about.painter.commands.Command;
 
 import java.util.ArrayList;
 
