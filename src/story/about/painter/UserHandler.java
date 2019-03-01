@@ -10,6 +10,8 @@ public class UserHandler {
 
         boolean link = true;
 
+        Navigator navigator = new Navigator();
+
         while(link){
             Scanner in = new Scanner(System.in);
             System.out.print(text);
@@ -38,8 +40,6 @@ public class UserHandler {
             try {
                 s[2] = s[2].replace("}","").replace("{","");
             }catch (ArrayIndexOutOfBoundsException ignored){}
-
-            Navigator navigator = new Navigator();
 
             switch (s[0]){
                 //паттерн позволяет нам реализовать небольшой макрос из имеющихся команд
