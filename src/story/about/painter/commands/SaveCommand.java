@@ -13,6 +13,7 @@ public class SaveCommand implements Command {
 
     @Override
     public void execute() {
+        System.out.println("Коллекция была сохранена в файл Out.json");
         girlsHashSet.save();
     }
 }

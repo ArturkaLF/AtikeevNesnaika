@@ -14,17 +14,17 @@ public class UserHandlerTest {
             Scanner in = new Scanner(System.in);
             System.out.print(text);
             String[] s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
-            while (    (!s[0].equalsIgnoreCase("save"))         // +
-                    && (!s[0].equalsIgnoreCase("sort"))         // +
-                    && (!s[0].equalsIgnoreCase("info"))         // +
-                    && (!s[0].equalsIgnoreCase("add"))          // +
-                    && (!s[0].equalsIgnoreCase("import"))       // +
-                    && (!s[0].equalsIgnoreCase("help"))         // +
-                    && (!s[0].equalsIgnoreCase("show"))         // +
-                    && (!s[0].equalsIgnoreCase("exit"))         // +
-                    && (!s[0].equalsIgnoreCase("remove"))       // +
-                    && (!s[0].equalsIgnoreCase("remove_lower")) // +
-                    && (!s[0].equalsIgnoreCase("start"))){      //
+            while (    (!s[0].equalsIgnoreCase("save"))
+                    && (!s[0].equalsIgnoreCase("sort"))
+                    && (!s[0].equalsIgnoreCase("info"))
+                    && (!s[0].equalsIgnoreCase("add"))
+                    && (!s[0].equalsIgnoreCase("import"))
+                    && (!s[0].equalsIgnoreCase("help"))
+                    && (!s[0].equalsIgnoreCase("show"))
+                    && (!s[0].equalsIgnoreCase("exit"))
+                    && (!s[0].equalsIgnoreCase("remove"))
+                    && (!s[0].equalsIgnoreCase("remove_lower"))
+                    && (!s[0].equalsIgnoreCase("start"))){
                 System.out.println("Ошибка! Такой команды нет");
                 System.out.print("Введите команду управления коллекцией: ");
                 s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
@@ -71,7 +71,7 @@ public class UserHandlerTest {
                     System.out.println(help);
                     break;
 
-                case "remove_lower": // ready
+                case "remove_lower":
                     Command remove_lower;
                     try{
                         remove_lower = new RemoveLowerCommand(girlsHashSet,s[1]);
@@ -82,25 +82,25 @@ public class UserHandlerTest {
                     navigator.go();
                     break;
 
-                case "sort": // ready
+                case "sort":
                     Command sort = new SortCommand(girlsHashSet);
                     navigator.setCommand(sort);
                     navigator.go();
                     break;
 
-                case "info":// ready
+                case "info":
                     Command info = new InfoCoomad(girlsHashSet);
                     navigator.setCommand(info);
                     navigator.go();
                     break;
 
-                case "show": // ready
+                case "show":
                     Command show = new ShowCommand(girlsHashSet);
                     navigator.setCommand(show);
                     navigator.go();
                     break;
 
-                case "add": // ready
+                case "add":
                     Command add;
                     try{
                         System.out.println("Элемент добавлен");
