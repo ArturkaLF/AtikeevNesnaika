@@ -42,6 +42,10 @@ public class UserHandler {
 
             switch (s[0]){
 
+                case "superInfo":
+                    navigator.addCommand(new InfoCoomad(girlsHashSet),new SortCommand(girlsHashSet),);
+                    break;
+
                 case "remove":
                     Command remove;
                     try{
@@ -54,26 +58,22 @@ public class UserHandler {
                     break;
 
                 case "start":
-                    Command start = new StartCommand(girlsHashSet);
-                    navigator.setCommand(start);
+                    navigator.setCommand(new StartCommand(girlsHashSet));
                     break;
 
                 case "save":
-                    Command save = new SaveCommand(girlsHashSet);
-                    navigator.setCommand(save);
+                    navigator.setCommand(new SaveCommand(girlsHashSet));
                     break;
 
                 case "import":
-                    Command importFile;
                     try{
-                        importFile = new ImportCommand(girlsHashSet,s[1]);
+                        navigator.setCommand(new ImportCommand(girlsHashSet,s[1]));
                         System.out.println("Файл импортирован из файла " + s[1]);
                     }catch (ArrayIndexOutOfBoundsException e1){
                         System.out.println("Файл с этим именем не найден");
                         System.out.println("Коллекция импортирована из файла test.csv");
-                        importFile = new ImportCommand(girlsHashSet, "test.csv");
+                        navigator.setCommand(new ImportCommand(girlsHashSet,"test.csv"));
                     }
-                    navigator.setCommand(importFile);
                     break;
 
                 case "help":
@@ -81,18 +81,15 @@ public class UserHandler {
                     break;
 
                 case "remove_lower":
-                    Command remove_lower;
                     try{
-                        remove_lower = new RemoveLowerCommand(girlsHashSet,s[1]);
+                        navigator.setCommand(new RemoveCommand(girlsHashSet,s[1]));
                     }catch (ArrayIndexOutOfBoundsException e){
-                        remove_lower = new RemoveLowerCommand(girlsHashSet,"");
+                        navigator.setCommand(new RemoveCommand(girlsHashSet,""));
                     }
-                    navigator.setCommand(remove_lower);
                     break;
 
                 case "sort":
-                    Command sort = new SortCommand(girlsHashSet);
-                    navigator.setCommand(sort);
+                    navigator.setCommand(new SortCommand(girlsHashSet));
                     break;
 
                 case "info":
@@ -101,27 +98,24 @@ public class UserHandler {
                     break;
 
                 case "show":
-                    Command show = new ShowCommand(girlsHashSet);
-                    navigator.setCommand(show);
+                    navigator.setCommand(new ShowCommand(girlsHashSet));
                     break;
 
                 case "add":
-                    Command add;
                     try{
                         System.out.println("Элемент добавлен");
-                        add = new AddCommand(girlsHashSet, s[1], s[2]);
+                        navigator.setCommand(new AddCommand(girlsHashSet,s[1],s[2]));
                     }catch (ArrayIndexOutOfBoundsException e){
                         System.out.println("Не было введено фразы");
                         System.out.println("Была установлена фраза: Привет");
                         try{
-                            add = new AddCommand(girlsHashSet, s[1], "Привет");
+                            navigator.setCommand(new AddCommand(girlsHashSet,s[1],"Привет"));
                         }catch (ArrayIndexOutOfBoundsException e1){
-                            add = new AddCommand(girlsHashSet, "Рома", "Привет");
+                            navigator.setCommand(new AddCommand(girlsHashSet,"Рома","Привет"));
                             System.out.println("Не было введено имени");
                             System.out.println("Была установлено имя: Рома");
                              }
                         }
-                    navigator.setCommand(add);
                     break;
 
                 case "exite":
