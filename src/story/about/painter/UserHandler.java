@@ -42,8 +42,9 @@ public class UserHandler {
             Navigator navigator = new Navigator();
 
             switch (s[0]){
-
+                //паттерн позволяет нам реализовать небольшой макрос из имеющихся команд
                 case "superInfo":
+
                     navigator.addCommand(new InfoCoomad(girlsHashSet));
                     navigator.addCommand(new ShowCommand(girlsHashSet));
                     navigator.addCommand(new SortCommand(girlsHashSet));

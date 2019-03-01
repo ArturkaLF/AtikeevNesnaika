@@ -1,17 +1,14 @@
 package story.about.painter.commands;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Navigator {
 
     private Command command;
-    private ArrayList<Command> listCommands;
+    private LinkedList<Command> listCommands = new LinkedList<>();
 
     public Navigator(){}
-
-    public Navigator(ArrayList<Command> listCommands) {
-        this.listCommands = listCommands;
-    }
 
     public void setCommand(Command command){
         this.command = command;

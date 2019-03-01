@@ -12,6 +12,6 @@ public class InfoCoomad implements Command {
 
     @Override
     public void execute() {
-        System.out.println(girlsHashSet.show());
+        System.out.println(girlsHashSet.info());
     }
 }
