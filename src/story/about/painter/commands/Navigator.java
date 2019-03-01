@@ -18,11 +18,11 @@ public class Navigator {
         this.go();
     }
 
-    public void addCommand(ArrayList<Command> listCommands){
-        this.listCommands.addAll(listCommands);
+    public void addCommand(Command command){
+        this.listCommands.add(command);
     }
 
-    public void run(){
+    public void runListCommands(){
         for(Command command:listCommands){
             command.execute();
         }
@@ -31,5 +31,7 @@ public class Navigator {
     public void go(){
         command.execute();
     }
+
+
 
 }

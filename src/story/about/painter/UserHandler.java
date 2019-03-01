@@ -18,6 +18,7 @@ public class UserHandler {
                     && (!s[0].equalsIgnoreCase("sort"))
                     && (!s[0].equalsIgnoreCase("info"))
                     && (!s[0].equalsIgnoreCase("add"))
+                    && (!s[0].equalsIgnoreCase("superInfo"))
                     && (!s[0].equalsIgnoreCase("import"))
                     && (!s[0].equalsIgnoreCase("help"))
                     && (!s[0].equalsIgnoreCase("show"))
@@ -43,7 +44,10 @@ public class UserHandler {
             switch (s[0]){
 
                 case "superInfo":
-                    navigator.addCommand(new InfoCoomad(girlsHashSet),new SortCommand(girlsHashSet),);
+                    navigator.addCommand(new InfoCoomad(girlsHashSet));
+                    navigator.addCommand(new ShowCommand(girlsHashSet));
+                    navigator.addCommand(new SortCommand(girlsHashSet));
+                    navigator.runListCommands();
                     break;
 
                 case "remove":
