@@ -17,6 +17,7 @@ public class Navigator {
 
     public void setCommand(Command command){
         this.command = command;
+        this.go();
     }
 
     public void addCommand(Command command){

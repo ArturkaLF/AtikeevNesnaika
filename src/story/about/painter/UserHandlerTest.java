@@ -47,7 +47,6 @@ public class UserHandlerTest {
                     try{
                         remove = new RemoveCommand(girlsHashSet,s[1]);
                         navigator.setCommand(remove);
-                        navigator.go();
                         System.out.println("Элемент удален");
                     }catch (ArrayIndexOutOfBoundsException e){
                         System.out.println("Нет элемента с таким именем");
@@ -57,13 +56,11 @@ public class UserHandlerTest {
                 case "start":
                     Command start = new StartCommand(girlsHashSet);
                     navigator.setCommand(start);
-                    navigator.go();
                     break;
 
                 case "save":
                     Command save = new SaveCommand(girlsHashSet);
                     navigator.setCommand(save);
-                    navigator.go();
                     break;
 
                 case "import":
@@ -77,7 +74,6 @@ public class UserHandlerTest {
                         importFile = new ImportCommand(girlsHashSet, "test.csv");
                     }
                     navigator.setCommand(importFile);
-                    navigator.go();
                     break;
 
                 case "help":
@@ -92,25 +88,21 @@ public class UserHandlerTest {
                         remove_lower = new RemoveLowerCommand(girlsHashSet,"");
                     }
                     navigator.setCommand(remove_lower);
-                    navigator.go();
                     break;
 
                 case "sort":
                     Command sort = new SortCommand(girlsHashSet);
                     navigator.setCommand(sort);
-                    navigator.go();
                     break;
 
                 case "info":
                     Command info = new InfoCoomad(girlsHashSet);
                     navigator.setCommand(info);
-                    navigator.go();
                     break;
 
                 case "show":
                     Command show = new ShowCommand(girlsHashSet);
                     navigator.setCommand(show);
-                    navigator.go();
                     break;
 
                 case "add":
@@ -130,7 +122,6 @@ public class UserHandlerTest {
                              }
                         }
                     navigator.setCommand(add);
-                    navigator.go();
                     break;
 
                 case "exite":
