@@ -1,7 +1,6 @@
 package story.about.painter;
 
-import story.about.painter.commands.AddCommand;
-import story.about.painter.commands.ShowCommand;
+import story.about.painter.commands.*;
 
 import java.util.Scanner;
 
@@ -45,41 +44,39 @@ public class UserHandlerTest {
 
             switch (s[0]){
 
-                case "super":
+                case "import":
 
 
-                case "remove_lower":
-                    navigator.setCommand(()->{
-                        try{
-                            girlsHashSet.remove_lower(finalS[1]);
-                        }catch (ArrayIndexOutOfBoundsException e1){
-                            girlsHashSet.remove("");
-                        }
-                    });
+                case "remove_lower": // ready
+                    Command remove_lower;
+                    try{
+                        remove_lower = new RemoveLowerCommand(girlsHashSet,s[1]);
+                    }catch (ArrayIndexOutOfBoundsException ignored){
+                        remove_lower = new RemoveLowerCommand(girlsHashSet,"");
+                    }
+                    navigator.setCommand(remove_lower);
                     navigator.go();
                     break;
 
-                case "sort":
-                    navigator.setCommand(()->{
-                        System.out.println(girlsHashSet.sortedList());
-                    });
+                case "sort": // ready
+                    Command sort = new SortCommand(girlsHashSet);
+                    navigator.setCommand(sort);
                     navigator.go();
                     break;
 
-                case "info":
-                    navigator.setCommand(()->{
-                        System.out.println(girlsHashSet.info());
-                    });
+                case "info":// ready
+                    Command info = new InfoCoomad(girlsHashSet);
+                    navigator.setCommand(info);
                     navigator.go();
                     break;
 
-                case "show":
+                case "show": // ready
                     Command show = new ShowCommand(girlsHashSet);
                     navigator.setCommand(show);
                     navigator.go();
                     break;
 
-                case "add":
+                case "add": // ready
                     Command add;
                     try{
                         System.out.println("Элемент добавлен");
