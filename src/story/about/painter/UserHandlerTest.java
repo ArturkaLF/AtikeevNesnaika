@@ -14,16 +14,16 @@ public class UserHandlerTest {
             Scanner in = new Scanner(System.in);
             System.out.print(text);
             String[] s = in.nextLine().replaceAll("[\\s]{2,}", " ").split(" ");
-            while (    (!s[0].equalsIgnoreCase("save"))         //
+            while (    (!s[0].equalsIgnoreCase("save"))         // +
                     && (!s[0].equalsIgnoreCase("sort"))         // +
                     && (!s[0].equalsIgnoreCase("info"))         // +
                     && (!s[0].equalsIgnoreCase("add"))          // +
-                    && (!s[0].equalsIgnoreCase("import"))       //
-                    && (!s[0].equalsIgnoreCase("help"))         //
+                    && (!s[0].equalsIgnoreCase("import"))       // +
+                    && (!s[0].equalsIgnoreCase("help"))         // +
                     && (!s[0].equalsIgnoreCase("show"))         // +
                     && (!s[0].equalsIgnoreCase("exit"))         // +
                     && (!s[0].equalsIgnoreCase("remove"))       // +
-                    && (!s[0].equalsIgnoreCase("remove_lower")) //
+                    && (!s[0].equalsIgnoreCase("remove_lower")) // +
                     && (!s[0].equalsIgnoreCase("start"))){      //
                 System.out.println("Ошибка! Такой команды нет");
                 System.out.print("Введите команду управления коллекцией: ");
@@ -40,18 +40,31 @@ public class UserHandlerTest {
 
             Navigator navigator = new Navigator();
 
-            String[] finalS = s;
-
             switch (s[0]){
+
+                case "start":
+                    Command start = new StartCommand(girlsHashSet);
+                    navigator.setCommand(start);
+                    navigator.go();
+
+                case "save":
+                    Command save = new SaveCommand(girlsHashSet);
+                    navigator.setCommand(save);
+                    navigator.go();
+                    break;
 
                 case "import":
                     Command importFile;
                     try{
                         importFile = new ImportCommand(girlsHashSet,s[1]);
+                        System.out.println("Файл импортирован из файла " + s[1]);
                     }catch (ArrayIndexOutOfBoundsException e1){
+                        System.out.println("Файл с этим именем не найден");
+                        System.out.println("Коллекция импортирована из файла test.csv");
                         importFile = new ImportCommand(girlsHashSet, "test.csv");
                     }
                     navigator.setCommand(importFile);
+                    navigator.go();
                     break;
 
                 case "help":
