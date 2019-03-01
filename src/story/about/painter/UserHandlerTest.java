@@ -1,6 +1,7 @@
 package story.about.painter;
 
 import story.about.painter.commands.AddCommand;
+import story.about.painter.commands.ShowCommand;
 
 import java.util.Scanner;
 
@@ -73,12 +74,10 @@ public class UserHandlerTest {
                     break;
 
                 case "show":
-                    navigator.setCommand(()->{
-                        System.out.println(girlsHashSet.show());
-                    });
+                    Command show = new ShowCommand(girlsHashSet);
+                    navigator.setCommand(show);
                     navigator.go();
                     break;
-
 
                 case "add":
                     Command add;
@@ -96,7 +95,7 @@ public class UserHandlerTest {
                             System.out.println("Была установлено имя: Рома");
                              }
                         }
-                    navigator.setCommand();
+                    navigator.setCommand(add);
                     navigator.go();
                     break;
 

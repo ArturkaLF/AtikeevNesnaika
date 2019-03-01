@@ -3,8 +3,6 @@ package story.about.painter.commands;
 import story.about.painter.Command;
 import story.about.painter.GirlsHashSet;
 
-import java.util.HashSet;
-
 public class AddCommand implements Command {
 
     private GirlsHashSet girlsHashSet;
