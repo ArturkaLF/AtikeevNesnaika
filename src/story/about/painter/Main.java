@@ -9,7 +9,7 @@ import story.about.painter.mp.LittleGirl;
 public class Main {
     public static void main(String[] args) {
 
-        // история вывода команд
+        // доработать методы GirlsHashSet
 
         final String HELP = "           Команды для интерактивного управления коллекцией \n" +
                 "add {element phrase}:   |добавить новый элемент в коллекцию.\n" +
