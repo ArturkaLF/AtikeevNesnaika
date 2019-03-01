@@ -4,6 +4,9 @@ import story.about.painter.GirlsHashSet;
 
 public class RemoveLowerCommand implements Command {
 
+    // история вывода команд
+    // макросы
+
     private GirlsHashSet girlsHashSet;
     private String name;
 
