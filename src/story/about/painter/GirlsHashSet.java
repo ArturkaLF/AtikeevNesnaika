@@ -192,6 +192,7 @@ public class GirlsHashSet<T> extends HashSet {
      */
     public void setTalkHandler(Conversation conversation){
         // Юзаем старый метод ко всем элементам коллекции
+
         for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
             littleGirl.next().setTalkHandler(conversation);
         }
