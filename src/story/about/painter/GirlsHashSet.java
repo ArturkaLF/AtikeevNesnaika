@@ -3,7 +3,6 @@ import story.about.painter.mp.Conversation;
 import story.about.painter.mp.LittleGirl;
 import story.about.painter.mp.Message;
 import story.about.painter.mp.Neznaika;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -190,12 +189,17 @@ public class GirlsHashSet<T> extends HashSet {
      *
      * @param conversation объект разговора для привязки
      */
+    //правила PECS
+    // wildcard параметры
     public void setTalkHandler(Conversation conversation){
         // Юзаем старый метод ко всем элементам коллекции
+        this.stream().forEach(o ->{
+            if(o instanceof LittleGirl) {
+                LittleGirl girl =(LittleGirl)o;
+                girl.setTalkHandler(conversation);
+            }
+        });
 
-        for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
-            littleGirl.next().setTalkHandler(conversation);
-        }
     }
 
 
