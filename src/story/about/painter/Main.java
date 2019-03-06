@@ -6,6 +6,8 @@ import story.about.painter.commands.Navigator;
 import story.about.painter.commands.SaveCommand;
 import story.about.painter.mp.LittleGirl;
 
+import java.util.HashSet;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -26,7 +28,7 @@ public class Main {
 
         Navigator navigator = new Navigator();
 
-        GirlsHashSet girlGirlsHashSet = new GirlsHashSet();
+        GirlsHashSet girlGirlsHashSet = new GirlsHashSet(new HashSet());
 
         Command importFile;
         try {
