@@ -26,7 +26,7 @@ public class Main {
 
         Navigator navigator = new Navigator();
 
-        GirlsHashSet<LittleGirl> girlGirlsHashSet = new GirlsHashSet<>();
+        GirlsHashSet girlGirlsHashSet = new GirlsHashSet();
 
         Command importFile;
         try {

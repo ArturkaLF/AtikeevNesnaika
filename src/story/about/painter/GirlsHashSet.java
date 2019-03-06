@@ -16,7 +16,9 @@ import java.util.*;
  * @version 1.1
  */
 
-public class GirlsHashSet<T> extends HashSet {
+public class GirlsHashSet{
+
+    private HashSet <LittleGirl> set;
 
     /**
      * Поле-счетчик удаленных элементов коллекции
@@ -27,14 +29,20 @@ public class GirlsHashSet<T> extends HashSet {
      */
     private int addCounter = 0;
 
+    public GirlsHashSet(HashSet<LittleGirl> hashset) {
+        set = hashset;
+    }
+
     /**
      * Метод добавления нового элемента коллекции
      *
      * @param name имя нового элемента коллекции (имя девочки)
      * @param text текст нового элемента коллекции (речь девочки)
      */
+
+
     public void add(String name, String text) {
-        this.add(new LittleGirl(name, new Message(text)));
+        set.add(new LittleGirl(name, new Message(text)));
         addCounter++;
     }
 
@@ -46,7 +54,7 @@ public class GirlsHashSet<T> extends HashSet {
     public String show(){
         // Создаем строку, куда добавляем все имена нашей коллекции
         String line = "";
-        for (Object o : this) {
+        for (LittleGirl o : set) {
             line = line.concat(o.toString()).concat(" ");
         }
         return line;
@@ -64,13 +72,13 @@ public class GirlsHashSet<T> extends HashSet {
             Scanner s = new Scanner(file);
             // Удаляем все элементы коллекции
             // мы их заменим на новые
-            this.removeAll(this);
+            set.removeAll(set);
             while (s.hasNext()){
                 // Читаем строчку и делим ее на элементы массива
                 String[] line = s.nextLine().split(",");
                 // Первый элемент добавляем как имя элемента коллекции
                 // второй элмент - текст этого элемента
-                this.add(new LittleGirl(line[0], new Message(line[1])));
+                set.add(new LittleGirl(line[0], new Message(line[1])));
             }
         } catch (FileNotFoundException e){
             // Если файл не был найден
@@ -90,7 +98,7 @@ public class GirlsHashSet<T> extends HashSet {
         // Создаем список
         ArrayList<String> list = new ArrayList<>();
         // Добавляем туда наши элементы коллекции
-        for (Object o : this) {
+        for (Object o : set) {
             list.add(o.toString());
         }
         // Сортим список
@@ -111,10 +119,10 @@ public class GirlsHashSet<T> extends HashSet {
      */
     public void remove(String element){
         // Сравниваем каждый элемент коллекции с введеным элементов
-        for (Object o: this) {
+        for (Object o: set) {
             // Находим его и удаляем
             if (o.toString().equals(element)){
-                this.remove(o);
+                set.remove(o);
                 removeCounter++;
                 break;
             }
@@ -128,7 +136,7 @@ public class GirlsHashSet<T> extends HashSet {
      */
     public String info(){
         return  "Подробная информация о коллекции: " + this.getClass() + "\n" +
-                "Количество элементов: " + this.size() + "\n" +
+                "Количество элементов: " + set.size() + "\n" +
                 "HashCode: " + this.hashCode() + "\n" +
                 "Количество удаленных элементов: " + this.removeCounter + "\n" +
                 "Количевтво добавленных элементво: " + this.addCounter;
@@ -142,13 +150,7 @@ public class GirlsHashSet<T> extends HashSet {
      */
     public void remove_lower(String element){
         // Проходимся по нашей коллекции
-        for (Iterator<LittleGirl> set = this.iterator(); set.hasNext();) {
-            // Удаляем элементы меньшие по длине чем введеный
-            if(element.length() > set.next().toString().length()){
-                set.remove();
-                removeCounter++;
-            }
-        }
+        set.removeIf( o -> o.toString().length() < element.length());
     }
 
     /**
@@ -160,7 +162,7 @@ public class GirlsHashSet<T> extends HashSet {
         try {
             FileWriter writer = new FileWriter(file);
             writer.write("{"+"\n");
-            for (LittleGirl littleGirl : (Iterable<LittleGirl>) this) {
+            for (LittleGirl littleGirl : set) {
                 writer.write("\"" + littleGirl.toString() + "\"" + ":"
                         + "\"" + littleGirl.getMsg() + "\"" + "," + "\n");
             }
@@ -179,8 +181,8 @@ public class GirlsHashSet<T> extends HashSet {
      */
     public void setNeznayka(Neznaika neznaika){
         // Юзаем старый метод ко всем элементам коллекции
-        for (Iterator<LittleGirl> littleGirl = this.iterator(); littleGirl.hasNext();) {
-            littleGirl.next().setNeznaika(neznaika);
+        for(LittleGirl l : set){
+            l.setNeznaika(neznaika);
         }
     }
 
@@ -189,17 +191,13 @@ public class GirlsHashSet<T> extends HashSet {
      *
      * @param conversation объект разговора для привязки
      */
-    //правила PECS
+    // правила PECS
     // wildcard параметры
     public void setTalkHandler(Conversation conversation){
         // Юзаем старый метод ко всем элементам коллекции
-        this.stream().forEach(o ->{
-            if(o instanceof LittleGirl) {
-                LittleGirl girl =(LittleGirl)o;
-                girl.setTalkHandler(conversation);
-            }
-        });
-
+        for(LittleGirl l : set){
+            l.setTalkHandler(conversation);
+        }
     }
 
 
