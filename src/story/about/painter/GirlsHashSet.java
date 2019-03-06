@@ -163,6 +163,7 @@ public class GirlsHashSet extends HashSet{
      */
     public void save(){
 
+        // сохранение коллекции в формате JSON
         File file = new File("Out.json");
         try {
             FileWriter writer = new FileWriter(file);
