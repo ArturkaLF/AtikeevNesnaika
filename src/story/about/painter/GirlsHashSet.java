@@ -16,9 +16,11 @@ import java.util.*;
  * @version 1.1
  */
 
-public class GirlsHashSet{
+public class GirlsHashSet extends HashSet{
 
     private HashSet <LittleGirl> set;
+
+
 
     /**
      * Поле-счетчик удаленных элементов коллекции
@@ -120,6 +122,7 @@ public class GirlsHashSet{
     public void remove(String element){
         // Сравниваем каждый элемент коллекции с введеным элементов
         set.removeIf(o -> o.toString().equals(element));
+        removeCounter += 1;
     }
 
     /**
@@ -146,7 +149,13 @@ public class GirlsHashSet{
      * @param element элемент для сравнения
      */
     public void remove_lower(String element){
-        set.removeIf(o -> o.toString().length() < element.length());
+        //set.removeIf(o -> o.toString().length() < element.length());
+        for(LittleGirl o: set){
+            if(o.toString().length() < element.length()){
+                set.remove(o);
+                removeCounter +=1;
+            }
+        }
     }
 
     /**
