@@ -11,8 +11,6 @@ import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
 
-        // доработать методы GirlsHashSet
-
         final String HELP = "           Команды для интерактивного управления коллекцией \n" +
                 "add {element phrase}:   |добавить новый элемент в коллекцию.\n" +
                 "show:                   |вывести в стандартный поток вывода все элементы коллекции в строковом представлении.\n" +
@@ -30,7 +28,6 @@ public class Main {
 
         HashSet<LittleGirl> hashSet = new HashSet<>();
         GirlsHashSet girlsHashSet = new GirlsHashSet(hashSet);
-
 
         Command importFile;
         try {

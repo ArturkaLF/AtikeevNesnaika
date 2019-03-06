@@ -87,7 +87,7 @@ public class UserHandler {
 
                 case "remove_lower":
                     try{
-                        navigator.setCommand(new RemoveCommand(girlsHashSet,s[1]));
+                        navigator.setCommand(new RemoveLowerCommand(girlsHashSet,s[1]));
                     }catch (ArrayIndexOutOfBoundsException e){
                         navigator.setCommand(new RemoveCommand(girlsHashSet,""));
                     }

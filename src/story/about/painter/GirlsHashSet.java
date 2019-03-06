@@ -119,14 +119,7 @@ public class GirlsHashSet{
      */
     public void remove(String element){
         // Сравниваем каждый элемент коллекции с введеным элементов
-        for (Object o: set) {
-            // Находим его и удаляем
-            if (o.toString().equals(element)){
-                set.remove(o);
-                removeCounter++;
-                break;
-            }
-        }
+        set.removeIf(o -> o.toString().equals(element));
     }
 
     /**
@@ -153,8 +146,7 @@ public class GirlsHashSet{
      * @param element элемент для сравнения
      */
     public void remove_lower(String element){
-        // Проходимся по нашей коллекции
-        set.removeIf( o -> o.toString().length() < element.length());
+        set.removeIf(o -> o.toString().length() < element.length());
     }
 
     /**
@@ -185,9 +177,7 @@ public class GirlsHashSet{
      */
     public void setNeznayka(Neznaika neznaika){
         // Юзаем старый метод ко всем элементам коллекции
-        for(LittleGirl l : set){
-            l.setNeznaika(neznaika);
-        }
+        set.forEach(o -> o.setNeznaika(neznaika));
     }
 
     /**
@@ -199,11 +189,7 @@ public class GirlsHashSet{
     // wildcard параметры
     public void setTalkHandler(Conversation conversation){
         // Юзаем старый метод ко всем элементам коллекции
-        for(LittleGirl l : set){
-            l.setTalkHandler(conversation);
-        }
+        set.forEach(o -> o.setTalkHandler(conversation));
     }
-
-
 }
 
