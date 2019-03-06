@@ -143,6 +143,10 @@ public class GirlsHashSet{
     }
 
 
+    public HashSet<LittleGirl> getSet() {
+        return set;
+    }
+
     /**
      * Метод удаления элеметов коллекции меньших чем введеный
      *

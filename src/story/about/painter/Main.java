@@ -28,20 +28,22 @@ public class Main {
 
         Navigator navigator = new Navigator();
 
-        GirlsHashSet girlGirlsHashSet = new GirlsHashSet(new HashSet());
+        HashSet<LittleGirl> hashSet = new HashSet<>();
+        GirlsHashSet girlsHashSet = new GirlsHashSet(hashSet);
+
 
         Command importFile;
         try {
-            importFile = new ImportCommand(girlGirlsHashSet,args[0]);
+            importFile = new ImportCommand(girlsHashSet, args[0]);
         }catch (ArrayIndexOutOfBoundsException e){
-            importFile = new ImportCommand(girlGirlsHashSet,"test.csv");
+            importFile = new ImportCommand(girlsHashSet,"test.csv");
         }
         navigator.setCommand(importFile);
 
         System.out.println(HELP);
-        UserHandler.getChoice("Введите команду управления коллекцией: ", girlGirlsHashSet, HELP);
+        UserHandler.getChoice("Введите команду управления коллекцией: ", girlsHashSet, HELP);
 
-        Command save = new SaveCommand(girlGirlsHashSet);
+        Command save = new SaveCommand(girlsHashSet);
         navigator.setCommand(save);
 
     }
