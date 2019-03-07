@@ -195,8 +195,6 @@ public class GirlsHashSet extends HashSet{
      *
      * @param conversation объект разговора для привязки
      */
-    // правила PECS
-    // wildcard параметры
     public void setTalkHandler(Conversation conversation){
         // Юзаем старый метод ко всем элементам коллекции
         set.forEach(o -> o.setTalkHandler(conversation));
