@@ -4,6 +4,14 @@ import story.about.painter.commands.*;
 
 import java.util.Scanner;
 
+/**
+ * Класс-обработчик запросов пользователя
+ *
+ * @author Атикеев Роман
+ * @version 1.2
+ */
+
+
 public class UserHandler {
 
     public static void getChoice(String text, GirlsHashSet girlsHashSet, String help){
