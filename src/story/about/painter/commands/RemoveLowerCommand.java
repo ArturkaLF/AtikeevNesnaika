@@ -15,6 +15,7 @@ public class RemoveLowerCommand implements Command {
         this.littlegirl = littlegirl;
     }
 
+
     @Override
     public void execute() {
         girlsHashSet.remove_lower(littlegirl);

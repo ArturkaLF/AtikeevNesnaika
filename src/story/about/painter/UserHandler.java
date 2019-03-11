@@ -1,6 +1,8 @@
 package story.about.painter;
 
 import story.about.painter.commands.*;
+import story.about.painter.mp.LittleGirl;
+import story.about.painter.mp.Message;
 
 import java.util.Scanner;
 
@@ -94,10 +96,18 @@ public class UserHandler {
                     break;
 
                 case "remove_lower":
+                    LittleGirl littleGirl;
                     try{
-                        navigator.setCommand(new RemoveLowerCommand(girlsHashSet,s[1]));
+                        littleGirl = new LittleGirl(s[1],new Message(s[2]));
+                        navigator.setCommand(new RemoveLowerCommand(girlsHashSet,littleGirl));
                     }catch (ArrayIndexOutOfBoundsException e){
-                        navigator.setCommand(new RemoveCommand(girlsHashSet,""));
+                        try {
+                            littleGirl = new LittleGirl(s[1],new Message("Hello"));
+                            navigator.setCommand(new RemoveLowerCommand(girlsHashSet,littleGirl));
+                        }catch (ArrayIndexOutOfBoundsException e2){
+                            littleGirl = new LittleGirl("Рома",new Message("Hello"));
+                            navigator.setCommand(new RemoveLowerCommand(girlsHashSet,littleGirl));
+                        }
                     }
                     break;
 
@@ -127,8 +137,8 @@ public class UserHandler {
                             navigator.setCommand(new AddCommand(girlsHashSet,"Рома","Привет"));
                             System.out.println("Не было введено имени");
                             System.out.println("Была установлено имя: Рома");
-                             }
                         }
+                    }
                     break;
 
                 case "exit":
