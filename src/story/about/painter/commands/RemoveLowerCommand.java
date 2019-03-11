@@ -1,19 +1,22 @@
 package story.about.painter.commands;
 
 import story.about.painter.GirlsHashSet;
+import story.about.painter.mp.LittleGirl;
+
+import java.util.ListIterator;
 
 public class RemoveLowerCommand implements Command {
 
     private GirlsHashSet girlsHashSet;
-    private String name;
+    private LittleGirl littlegirl;
 
-    public RemoveLowerCommand(GirlsHashSet girlsHashSet, String name) {
+    public RemoveLowerCommand(GirlsHashSet girlsHashSet, LittleGirl littlegirl) {
         this.girlsHashSet = girlsHashSet;
-        this.name = name;
+        this.littlegirl = littlegirl;
     }
 
     @Override
     public void execute() {
-        girlsHashSet.remove_lower(name);
+        girlsHashSet.remove_lower(littlegirl);
     }
 }

@@ -148,14 +148,17 @@ public class GirlsHashSet extends HashSet{
      *
      * @param element элемент для сравнения
      */
-    public void remove_lower(String element){
-        //set.removeIf(o -> o.toString().length() < element.length());
-        for(LittleGirl o: set){
-            if(o.toString().length() < element.length()){
-                set.remove(o);
-                removeCounter +=1;
-            }
-        }
+    public void remove_lower(LittleGirl element){
+        set.removeIf(o -> o.compareTo(element)  < 0);
+
+//        set.removeIf(o -> )
+//
+//        for(LittleGirl o: set){
+//            if(o.toString().length() < element.length()){
+//                set.remove(o);
+//                removeCounter +=1;
+//            }
+//        }
     }
 
     /**

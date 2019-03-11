@@ -6,10 +6,16 @@ import story.about.painter.commands.Navigator;
 import story.about.painter.commands.SaveCommand;
 import story.about.painter.mp.LittleGirl;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
+
+        ArrayList<Number> arrayList = new ArrayList<>();
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1 = arrayList;
+
 
         final String HELP = "           Команды для интерактивного управления коллекцией \n" +
                 "superInfo               |вывести супер подробную информацию о коллекции. \n" +
