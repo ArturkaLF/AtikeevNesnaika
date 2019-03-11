@@ -150,13 +150,15 @@ public class GirlsHashSet extends HashSet{
      */
     public void remove_lower(LittleGirl element){
 
-        for(LittleGirl el: set){
-            if (el.compareTo(element) < 0){
-                set.remove(el);
-                removeCounter++;
-                System.out.println("Был удален элемент:" + el.toString());
-            }
-        }
+        set.removeIf(o -> o.compareTo(element) < 0);
+
+//        for(LittleGirl el: set){
+//            if (el.compareTo(element) < 0){
+//                set.remove(el);
+//                removeCounter++;
+//                System.out.println("Был удален элемент:" + el.toString());
+//            }
+//        }
     }
 
 
