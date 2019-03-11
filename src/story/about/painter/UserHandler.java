@@ -98,16 +98,10 @@ public class UserHandler {
                 case "remove_lower":
                     LittleGirl littleGirl;
                     try{
-                        littleGirl = new LittleGirl(s[1],new Message(s[2]));
+                        littleGirl = new LittleGirl(s[1], new Message("Hello"));
                         navigator.setCommand(new RemoveLowerCommand(girlsHashSet,littleGirl));
                     }catch (ArrayIndexOutOfBoundsException e){
-                        try {
-                            littleGirl = new LittleGirl(s[1],new Message("Hello"));
-                            navigator.setCommand(new RemoveLowerCommand(girlsHashSet,littleGirl));
-                        }catch (ArrayIndexOutOfBoundsException e2){
-                            littleGirl = new LittleGirl("Рома",new Message("Hello"));
-                            navigator.setCommand(new RemoveLowerCommand(girlsHashSet,littleGirl));
-                        }
+                        System.out.println("Такого эдемента нет в коллекции");
                     }
                     break;
 
