@@ -152,13 +152,23 @@ public class GirlsHashSet extends HashSet{
 
         //set.removeIf(o -> o.compareTo(element) < 0); // недостаточно
 
-        set.forEach(o->{
-            if (o.compareTo(element) < 0){
-                set.remove(o);
-                System.out.println("Был удален элемент: " + o.toString());
-                removeCounter++;
-            }
-        }); // ломается
+         Iterator<LittleGirl> littleGirlIterator = set.iterator();
+         while (littleGirlIterator.hasNext()){
+             LittleGirl littleGirl = littleGirlIterator.next();
+             if(littleGirl.compareTo(element) < 0){
+                 set.remove(littleGirl);
+                 System.out.println("Был удален элемент: " + littleGirl.toString());
+                 removeCounter++;
+             }
+         }
+
+//        set.forEach(o->{
+//            if (o.compareTo(element) < 0){
+//                set.remove(o);
+//                System.out.println("Был удален элемент: " + o.toString());
+//                removeCounter++;
+//            }
+//        }); // ломается
 
 
 
